@@ -1,0 +1,175 @@
+%
+%
+% UCSD Doctoral Dissertation Template
+% -----------------------------------
+% http://ucsd-thesis.googlecode.com
+%
+%
+
+
+%% REQUIRED FIELDS -- Replace with the values appropriate to you
+
+% No symbols, formulas, superscripts, or Greek letters are allowed
+% in your title.
+\title{Inter- and intratumoral heterogeneity of circular extrachromosomal DNA in medulloblastoma and other pediatric cancers}
+
+\author{Owen Chapman}
+\degreeyear{2023}
+
+% Master's Degree theses will NOT be formatted properly with this file.
+\degreetitle{Doctor of Philosophy}
+
+\field{Bioinformatics and Systems Biology}
+\specialization{Biomedical Informatics}  % If you have a specialization, add it here
+
+\chair{Professor Jill Mesirov}
+% Uncomment the next line iff you have a Co-Chair
+\cochair{Professor Bing Ren}
+%
+% Or, uncomment the next line iff you have two equal Co-Chairs.
+%\cochairs{Professor Chair Masterish}{Professor Chair Masterish}
+
+%  The rest of the committee members  must be alphabetized by last name.
+\othermembers{
+Professor Vineet Bafna\\
+Professor Lukas Chavez\\
+Professor Paul Mischel\\
+}
+\numberofmembers{5} % |chair| + |cochair| + |othermembers|
+
+
+%% START THE FRONTMATTER
+%
+\begin{frontmatter}
+
+%% TITLE PAGES
+%
+%  This command generates the title, copyright, and signature pages.
+%
+\makefrontmatter
+
+%% DEDICATION
+%
+%  You have three choices here:
+%    1. Use the ``dedication'' environment.
+%       Put in the text you want, and everything will be formated for
+%       you. You'll get a perfectly respectable dedication page.
+%
+%
+%    2. Use the ``mydedication'' environment.  If you don't like the
+%       formatting of option 1, use this environment and format things
+%       however you wish.
+%
+%    3. If you don't want a dedication, it's not required.
+%
+%
+\begin{dedication}
+To the anonymous pediatric patients whose tumor tissue I have studied for the past five years. May your generosity one day save someone's life.
+\end{dedication}
+
+
+% \begin{mydedication} % You are responsible for formatting here.
+%   \vspace{1in}
+%   \begin{flushleft}
+% 	To me.
+%   \end{flushleft}
+%
+%   \vspace{2in}
+%   \begin{center}
+% 	And you.
+%   \end{center}
+%
+%   \vspace{2in}
+%   \begin{flushright}
+% 	Which equals us.
+%   \end{flushright}
+% \end{mydedication}
+
+
+
+%% EPIGRAPH
+%
+%  The same choices that applied to the dedication apply here.
+%
+\begin{epigraph} % The style file will position the text for you.
+  \emph{I think that if ever a mortal heard the word of God, it would be in a garden at the cool of the day.}\\
+  ---F. Frankfort Moore
+\end{epigraph}
+
+%% SETUP THE TABLE OF CONTENTS
+%
+\tableofcontents
+
+%% List of Abbreviations
+\newpage
+\addcontentsline{toc}{chapter}{\abbrevtitle}
+\begin{center}\expandafter\MakeUppercase\expandafter{\abbrevtitle}\end{center}
+\let\clearpage\relax
+\vspace*{-2cm}
+\printglossary[type=\acronymtype,title={}]
+
+
+\listoffigures  % Comment if you don't have any figures
+\listoftables   % Comment if you don't have any tables
+
+
+
+%% ACKNOWLEDGEMENTS
+%
+%  While technically optional, you probably have someone to thank.
+%  Also, a paragraph acknowledging all coauthors and publishers (if
+%  you have any) is required in the acknowledgements page and as the
+%  last paragraph of text at the end of each respective chapter. See
+%  the OGS Formatting Manual for more information.
+%
+\begin{acknowledgements}
+I would like to thank everyone who has supported me during my PhD in ways great and small. This work would not be possible without my colleagues in the BISB program, in the Mesirov and Chavez labs, and in the labs of our close collaborators. Thanks to Jens Luebeck, Konstantin Okonechnikov, Tobi Ehrenberger, Niema Moshiri, and Michelle Dow for guidance during my early years in the program. Thanks to Alex Wenzel, Meghana Pagadala, Andrea Castro, Cynthia Wu, Andrey Bzikadze, Michelle Ragsac, Clarence Mah, Adam Officer and George Armstrong for support and example as they have navigated their training alongside me. 
+
+\par Thanks also to the many collaborators who have contributed to this project. Special thanks to my PhD advisers Jill Mesirov and Lukas Chavez, who have invested in me and my work since I joined their labs in 2018. Thanks also for support from the other members of my doctoral committee, Vineet Bafna, Paul Mischel, and Bing Ren.  Special acknowledgment also to my desk neighbor and project co-leader, Sunita Sridhar, who has led our investigations on ecDNA in pediatric cancers beyond medulloblastoma. To each of my co-authors, a thousand thanks for contributions innumerable and essential. The science herein is as much a reflection of their skill and experience as mine.  I hope it marks the first milestone in many long and fruitful collaborations.
+
+\par I thank the BISB faculty I rotated with in my first year, Rob Knight and Jonathan Sebat. 
+
+\par Finally, I extend my heartfelt gratitude towards family, friends, loved ones and mentors who have walked life's path alongside me.
+
+\par Chapter 1, in full, is adapted from the following manuscript currently being prepared for publication: "Circular extrachromosomal DNA promotes inter- and intratumoral heterogeneity in high-risk medulloblastoma." Chapman, Owen; Luebeck, Jens; Sridhar, Sunita; Wong, Ivy T.L.; Dixit, Deobrat; Wang, Shanqing; Prasad, Gino; Rajkumar, Utkrisht; Pagadala, Meghana; Larson, Jon D.; He, Britney J.; Hung, King L.; Lange, Joshua T.; Dehkordi, Siavash R.; Chandran, Sahaana; Adam, Miriam; Morgan, Ling; Wani, Sameena; Tiwari, Ashutosh; Guccione, Caitlin; Lin, Yingxi; Dutta, Aditi; Lo, Yan Yuen; Juarez, Edwin; Robinson, James T.; Malicki, Denise M.; Coufal, Nicole G.; Levy, Michael; Hobbs, Charlotte; Scheuermann, Richard H.; Crawford, John R.; Pomeroy, Scott L.; Rich, Jeremy; Zhang, Xinlian; Chang, Howard Y.; Dixon, Jesse R.; Bagchi, Anindya; Deshpande, Aniruddha J.; Carter, Hannah; Fraenkel, Ernest; Mischel, Paul S.; Wechsler-Reya, Robert J.; Bafna, Vineet; Mesirov, Jill P.; Chavez, Lukas. The dissertation author was the primary investigator and author of the manuscript.
+\par Chapter 2, in part, is reproduced from Chapman \textit{et al.} above.
+\par Chapter 3, in full, is reproduced from Chapman \textit{et al.} above.
+\par Chapter 4, in full, is adapted from the following manuscript currently being prepared for publication: "Extrachromosomal DNA promotes oncogene amplification across multiple pediatric cancer types." Sridhar, Sunita; Chapman, Owen S; Dutta, Aditi; Wang, Shanqing; Luebeck, Jens; Bafna, Vineet; Mesirov, Jill P; Chavez, Lukas.
+The dissertation author was the second investigator and author of the manuscript.
+\end{acknowledgements}
+
+
+%% VITA
+%
+%  A brief vita is required in a doctoral thesis. See the OGS
+%  Formatting Manual for more information.
+%
+\begin{vitapage}
+\begin{vita}
+  \item[2017] B.~A. in Computer Science \emph{cum laude}, Pomona College, Claremont
+  \item[2018-2020] Graduate Teaching Assistant, University of California San Diego
+  \item[2020-\the\year] Graduate Research Assistant, University of California San Diego
+  \item[\the\year] Ph.~D. in Bioinformatics and Systems Biology, University of California San Diego
+\end{vita}
+\begin{publications}
+  \item \bibentry{banerjee_2019}.
+  \item \bibentry{okonechnikov_2023}.
+  \item \bibentry{tiwari_2022}.
+  \item \bibentry{Chapman}.
+  \item \bibentry{Sridhar}.
+\end{publications}
+
+\end{vitapage}
+
+
+%% ABSTRACT
+%
+%  Doctoral dissertation abstracts should not exceed 350 words.
+%   The abstract may continue to a second page if necessary.
+%
+\begin{abstract}
+\gls{ecDNA} is an important driver of aggressive adult cancers, but its role in pediatric tumors is not yet well-understood. To survey the genomic landscape of ecDNA amplifications across pediatric cancers, we applied computational methods to detect ecDNA in the genomes of a cohort of 1670 pediatric tumors from 1481 patients. ecDNA was detected in at least 10\% of pediatric ETMR, osteosarcoma, rhabdomyosarcoma, high-grade glioma, retinoblastoma, and medulloblastoma (MB) tumors. To assess the clinical importance of ecDNA in MB, the most common malignant pediatric brain tumor, we applied the same methods to a cohort of 468 MB patients. ecDNA was detected in 18\% of MB tumors and carried a threefold greater risk of mortality within 5 years. Affected genomic loci harbor up to hundredfold amplification of oncogenes including \textit{MYC}, \textit{MYCN}, \textit{TERT}, and other novel putative oncogenes. To elucidate the functional regulatory landscapes of ecDNAs in MB, we generated transcriptional (RNA-seq), accessible chromatin (ATAC-seq), and chromatin interaction (Hi-C) profiles of 6 MB tumor samples. In each case, we identified regulatory interactions that cross fusion breakpoints on the ecDNA, representing potential ``enhancer rewiring'' events which may contribute to transcriptional activation of co-amplified oncogenes. To test this hypothesis, we conducted an \textit{in vitro} CRISPRi screen targeting regulatory regions on the ecDNA of a MB cell line and identified distal enhancers which promote proliferation. Using single-cell sequencing, we have also developed methods to explore intratumoral heterogeneity of ecDNA in a p53-mutant SHH MB patient tumor and its corresponding PDX model. In summary, our study analyzes the frequency, diversity, and functional relevance of ecDNA across MB subgroups and provides strong justification for continued mechanistic studies of ecDNA in MB with the potential to uncover new therapeutic approaches.
+\end{abstract}
+
+
+\end{frontmatter}

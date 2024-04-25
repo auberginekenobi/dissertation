@@ -1,0 +1,334 @@
+%
+%
+% UCSD Doctoral Dissertation Template
+% -----------------------------------
+% https://github.com/ucsd-thesis/ucsd-thesis
+%
+%
+% ----------------------------------------------------------------------
+% WARNING: 
+%
+%   This template has not endorced by OGS or any other official entity.
+%   The official formatting guide can be obtained from OGS.
+%   It can be found on the web here:
+%   http://grad.ucsd.edu/_files/academic-affairs/Dissertations_Theses_Formatting_Manual.pdf
+%
+%   No guaranty is made that this LaTeX class conforms to the official UCSD guidelines.
+%   Make sure that you check the final document against the Formatting Manual.
+%  
+%   That being said, this class has been routinely used for successful 
+%   publication of doctoral theses.  
+%
+%   The ucsd.cls class files are only valid for doctoral dissertations.
+%
+%
+% ----------------------------------------------------------------------
+% GETTING STARTED:
+%
+%   Lots of information can be found on the project wiki:
+%   http://code.google.com/p/ucsd-thesis/wiki/GettingStarted
+%
+%
+%   To make a pdf from this template use the command:
+%     pdflatex template
+%
+%
+%   To get started please read the comments in this template file 
+%   and make changes as appropriate.
+%
+%   If you successfully submit a thesis with this package please let us
+%   know.
+%
+%
+% ----------------------------------------------------------------------
+% KNOWN ISSUES:
+%
+%   Currently only the 12pt size conforms to the UCSD requirements.
+%   The 10pt and 11pt options make the footnote fonts too small.
+%
+%
+% ----------------------------------------------------------------------
+% HELP/CONTACT:
+%
+%   If you need help try the ucsd-thesis google group:
+%   http://groups.google.com/group/ucsd-thesis
+%
+%
+% ----------------------------------------------------------------------
+% BUGS:
+%
+%   Please report all bugs at:
+%   https://github.com/ucsd-thesis/ucsd-thesis/issues
+%
+%
+% ----------------------------------------------------------------------
+% More control of the formatting of your thesis can be achieved through
+% modifications of the included LaTeX class files:
+%
+%   * ucsd.cls    -- Class file
+%   * uct10.clo   -- Configuration files for font sizes 10pt, 11pt, 12pt
+%     uct11.clo                            
+%     uct12.clo
+%
+% ----------------------------------------------------------------------
+
+
+
+% Setup the documentclass 
+% default options: 12pt, oneside, final
+%
+% fonts: 10pt, 11pt, 12pt -- are valid for UCSD dissertations.
+% sides: oneside, twoside -- note that two-sided theses are not accepted 
+%                            by OGS.
+% mode: draft, final      -- draft mode switches to single spacing, 
+%                            removes hyperlinks, and places a black box
+%                            at every overfull hbox (check these before
+%                            submission).
+% chapterheads            -- Include this if you want your chapters to read:
+%                              Chapter 1
+%                              Title of Chapter
+%
+%                            instead of
+%                              1 Title of Chapter
+\documentclass[12pt,chapterheads,final]{ucsd}
+
+
+
+% Include all packages you need here.  
+% Some standard options are suggested below.
+%
+% See the project wiki for information on how to use 
+% these packages. Other useful packages are also listed there.
+%
+%   http://code.google.com/p/ucsd-thesis/wiki/GettingStarted
+
+\usepackage[acronym]{glossaries}
+%\usepackage[automake]{glossaries-extra}
+
+%% AMS PACKAGES - Chances are you will want some or all 
+%    of these if writing a dissertation that includes equations.
+%  \usepackage{amsmath, amscd, amssymb, amsthm}
+
+%% BONUS MATH
+%  \usepackage{mathtools} 
+
+%% MARGIN REQUIREMENTS IN TITLES - Hyphenation in a Section Title does not always respect margin settings in Latex.  To force no hyphentation, uncomment the package below.
+%  \usepackage[raggedright]{titlesec} 
+
+%% GRAPHICX - This is the standard package for 
+%    including graphics for latex/pdflatex.
+\usepackage{scrextend}
+\usepackage{pslatex}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
+
+\usepackage[export]{adjustbox}
+%\usepackage{verbatimbox}
+
+
+%% CAPTION
+% This overrides some of the ugliness in ucsd.cls and
+% allows the text to be double-spaced while letting figures,
+% tables, and footnotes to be single-spaced--all OGS requirements.
+% NOTE: Must appear after graphics and ams math
+\makeatletter
+\gdef\@ptsize{2}% 12pt documents
+\let\@currsize\normalsize
+\makeatother
+\usepackage{setspace}
+\doublespace
+\usepackage[font=small, width=0.9\textwidth]{caption}
+%% \usepackage[capposition=bottom]{floatrow} %force captions below figure per OGS requirement
+% Table captions go above
+%\usepackage{floatrow}
+
+%% SUBFIG - Use this to place multiple images in a
+%    single figure.  Subfig will handle placement and
+%    proper captioning (e.g. Figure 1.2(a))
+% subcaption succeeded subfig
+\usepackage{subcaption}
+
+%% TIMES FONT - replacements for Computer Modern
+%%   This package will replace the default font with a
+%%   Times-Roman font with math support.
+% \usepackage[T1]{fontenc}
+% \usepackage{mathptmx}
+
+%% INDEX
+%   Uncomment the following two lines to create an index: 
+% \usepackage{makeidx}
+% \makeindex
+%   You will need to uncomment the \printindex line near the
+%   bibliography to display the index.  Use the command
+% \index{keyword} 
+%   within the text to create an entry in the index for keyword.
+%   To compile a LaTeX document with an index the 'makeindex'
+%   command will need to be run.  See the wiki for more details.
+
+
+%% CITATIONS
+% Sets citation format
+% and fixes up citations madness
+\usepackage{microtype}  % avoids citations that hang into the margin
+\microtypesetup{protrusion=false}
+
+
+%% FOOTNOTE-MAGIC
+% Enables footnotes in tables, re-referencing the same footnote multiple times.
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+
+%% TABLE FORMATTING MADNESS
+% Enable all sorts of fun table tricks
+\usepackage{rotating}  % Enables the sideways environment (NCPW)
+\usepackage{array}  % Enables "m" tabular environment http://ctan.org/pkg/array
+\usepackage{booktabs}  % Enables \toprule  http://ctan.org/pkg/array
+
+%% HYPERLINKS
+%   To create a PDF with hyperlinks, you need to include the hyperref package.
+%   THIS HAS TO BE THE LAST PACKAGE INCLUDED!
+%   Note that the options plainpages=false and pdfpagelabels exist
+%   to fix indexing associated with having both (ii) and (2) as pages.
+%   Also, all links must be black according to OGS.
+%   See: http://www.tex.ac.uk/cgi-bin/texfaq2html?label=hyperdupdest
+%   Note: This may not work correctly with all DVI viewers (i.e. Yap breaks).
+%   NOTE: hyperref will NOT work in draft mode, as noted above.
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true, pdfstartview=FitV, 
+             linkcolor=black, citecolor=black, 
+             urlcolor=black, plainpages=false,
+             pdfpagelabels]{hyperref}
+\hypersetup{ pdfauthor = {Owen Chapman}, 
+              pdftitle = {Inter- and intratumoral heterogeneity of circular extrachromosomal DNA in
+medulloblastoma and other pediatric cancers}, 
+              pdfkeywords = {ecDNA, medulloblastoma, genomics, epigenomics}, 
+              pdfcreator = {pdfLaTeX with hyperref package}, 
+              pdfproducer = {pdfLaTeX} }
+\urlstyle{same}
+\usepackage{bookmark}
+
+\usepackage [utf8]{inputenc}
+\usepackage{textgreek} % \textmugreek
+\usepackage{gensymb} % \degree
+\usepackage{bibentry} % \bibentry
+\nobibliography*
+
+
+%% define section names
+\newcommand{\abbrevtitle}{List of Abbreviations}
+\newcommand{\introtitle}{Introduction}
+\newcommand{\medullotitle}{CLINICAL IMPORT OF CIRCULAR ECDNA IN MEDULLOBLASTOMA AND OTHER PEDIATRIC CANCERS}
+\newcommand{\singlecelltitle}{INTRATUMORAL HETEROGENEITY OF  ECDNA AT SINGLE-CELL RESOLUTION}
+\newcommand{\epigeneticstitle}{TRANSCRIPTIONAL REGULATION OF ECDNA-AMPLIFIED GENE EXPRESSION IN MEDULLOBLASTOMA}
+\newcommand{\pedpancantitle}{THE GENOMIC LANDSCAPE OF ECDNA ACROSS PEDIATRIC CANCERS}
+\newcommand{\ackfunding}{This work is supported by a generous endowment by the Clayes foundation to the Research Center for Neuro-Oncology and Genomics within the Rady Children’s Institute for Genomic Medicine, a Hannah’s Heroes St. Baldrick’s Scholar Award (LC), a grant from The National Brain Tumour Society (PSM) and funding from the NIH National Institute of Neurological Disorders and Stroke Institute NS122339 (RWR), R21 NS116455 (LC) and R21 NS120075 (LC), the NIH National Cancer Institute R01 CA159859 (RWR), R01 CA238249 (PSM), U01 CA184898 (JPM), U01 CA253547 (JPM and EF) F31 CA271777 (OSC) and U24 CA264379 (VB, PSM and JPM), the NIH National Institute of General Medical Sciences R01 GM074024 (JPM) and R01 GM114362 (VB and JPM), the NIH National Library of Medicine T15 LM011271 (OSC), a Moores Cancer Center Pilot Grant (LC, VB, JPM, and PSM), Cancer Grand Challenges grant CGCSDF-2021/100007, with support from Cancer Research UK and the National Cancer Institute (HYC, VB, PSM). Microscopy work was supported by funding from the NIH National Institute of Neurological Disorders and Stroke P30 NS047101 (UCSD Microscopy Core). This work used the Extreme Science and Engineering Discovery Environment (XSEDE), which is supported by National Science Foundation grant number ACI-1548562. DNA methylation array analysis was conducted at the IGM Genomics Center, University of California, San Diego, La Jolla, CA (P30 CA023100). This research was conducted using data made available by The Children’s Brain Tumor Network (formerly the Children’s Brain Tumor Tissue Consortium). HYC is an Investigator of the Howard Hughes Medical Institute.}
+
+\newcommand\comment[1]\null
+
+
+
+% define acronyms
+\setacronymstyle{long-short}
+
+\newacronym{ecDNA}{ecDNA}{extrachromosomal DNA}
+\newacronym{HSR}{HSR}{homogeneously staining region}
+\newacronym{FISH}{FISH}{fluorescence \textit{in situ} hybridization}
+\newacronym{FFPE}{FFPE}{formalin fixed paraffin embedded}
+\newacronym{bp}{bp}{base pairs}
+\newacronym{snRNA+ATAC}{snRNA+ATAC}{single-nucleus multiome RNA-seq and ATAC-seq (10X Genomics)}
+\newacronym{ETMR}{ETMR}{embryonal tumor with multilayered rosettes}
+\newacronym{OS}{OS}{osteosarcoma}
+\newacronym{PB}{PB}{pineoblastoma}
+\newacronym{EPN}{EPN}{ependymoma}
+\newacronym{NB}{NB}{neuroblastoma}
+\newacronym{HGG}{HGG}{high-grade glioma}
+\newacronym{RMS}{RMS}{rhabdomyosarcoma}
+\newacronym{MFH}{MFH}{malignant fibrous histiocytoma}
+\newacronym{MM}{MM}{multiple myeloma}
+\newacronym{LMS}{LMS}{leiomyosarcoma}
+\newacronym{RB}{RB}{retinoblastoma}
+\newacronym{ACC}{ACC}{adrenocortical carcinoma}
+\newacronym{CPC}{CPC}{choroid plexus carcinoma}
+\newacronym{LGG}{LGG}{low-grade glioma}
+\newacronym{MPNST}{MPNST}{malignant peripheral nerve sheath tumor}
+\newacronym{CPG}{CPG}{craniopharyngioma}
+\newacronym{GG}{GG}{ganglioglioma}
+\newacronym{MB}{MB}{medulloblastoma}
+\newacronym{SMS}{SMS}{Smith-Magenis syndrome}
+\newacronym{CMT1A}{CMT1A}{Charcot-Marie-Tooth disease type 1A}
+\newacronym{ecDNA+}{ecDNA+}{ecDNA-containing}
+\newacronym{cna}{CNA}{copy-number alteration}
+\newacronym{icgc}{ICGC}{International Cancer Genome Consortium}
+\newacronym{pcawg}{PCAWG}{the Pan Cancer Analysis of Whole Genomes}
+\newacronym{kf}{KF-DRC}{the Kids First Data Resource Commons}
+\newacronym{pcgp}{PCGP}{Pediatric Cancer Genome Project}
+\newacronym{rtcg}{RTCG}{Real-Time Clinical Genomics}
+\newacronym{cbtn}{CBTN}{Children's Brain Tumor Network}
+\newacronym{AA}{AA}{AmpliconArchitect}
+\newacronym{wgs}{WGS}{whole genome sequencing}
+\newacronym{pdx}{PDX}{patient-derived xenograft}
+\newacronym{rcmb56-ht}{RCMB56-ht}{RCMB56 primary human tumor}
+\newacronym{rcmb56-pdx}{RCMB56-pdx}{RCMB56 patient-derived xenograft}
+\newacronym{km}{KM}{Kaplan-Meier}
+\newacronym{cph}{CPH}{Cox Proportional Hazards}
+\newacronym{aft}{AFT}{accelerated failure time}
+\newacronym{os}{OS}{overall survival}
+\newacronym{pfs}{PFS}{progression-free survival}
+\newacronym{ogm}{OGM}{optical genome mapping, Bionano Genomics}
+\newacronym{uhmw dna}{UHMW DNA}{ultrahigh molecular weight DNA}
+\newacronym{mle}{MLE}{maximum likelihood estimation}
+\newacronym{pfge}{PFGE}{pulsed-field gel electrophoresis}
+\newacronym{opc}{OPC}{oligodendrocyte precursor cell}
+
+\newacronym{H3K27mut}{H3K27\textsuperscript{mut}}{histone 3 lysine 27 mutant}
+\newacronym{H3G34mut}{H3G34\textsuperscript{mut}}{histone 3 glycine 34 mutant}
+\newacronym{IDHmut}{IDH\textsuperscript{mut}}{\textit{IDH} mutant}
+\newacronym{H3/IDHwt}{H3/IDH\textsuperscript{mut}}{\textit{H3} wild-type \textit{IDH} wild-type}
+
+\newcommand{\glsgene}[2][]{{\let\acronymfont\textit\gls[#1]{#2}}}
+\newacronym{TP53}{TP53}{tumor suppressor protein p53}
+\newacronym{DNTTIP2}{DNTTIP2}{Deoxynucleotidyltransferase Terminal-Interacting Protein 2}
+\newacronym{KMT2E}{KMT2E}{Lysine Methyltransferase 2E}
+\newacronym{ETV1}{ETV1}{ETS Variant Transcription Factor 1}
+\makeglossaries
+
+
+\begin{document}
+
+\include{section_0_frontmatter}
+\include{section_0_introduction}
+%\include{section_pedpancan}
+\include{section_1_medullo}
+\include{section_2_heterogeneity}
+\include{section_3_epigenomics}
+\include{section_4_pedpancan}
+
+
+%% APPENDIX
+%\appendix
+%\chapter{Final notes}
+
+
+
+
+%% END MATTER
+% \printindex %% Uncomment to display the index
+% \nocite{}  %% Put any references that you want to include in the bib 
+%               but haven't cited in the braces.
+%\bibliographystyle{abbrv}  %% This is just my personal favorite style. 
+\bibliographystyle{abbrv}
+
+%                              There are many others.
+%\setlength{\bibleftmargin}{0.25in}  % indent each item
+%\setlength{\bibindent}{-\bibleftmargin}  % unindent the first line
+%\def\baselinestretch{1.0}  % force single spacing
+%\setlength{\bibitemsep}{0.16in}  % add extra space between items
+\bibliography{medullo,pedpancan,vita}  %% This looks for the bibliography in template.bib 
+%                          which should be formatted as a bibtex file.
+%                          and needs to be separately compiled into a bbl file.
+\singlespace  %to force bibilography environment to use single spacing for each entry 
+              %double spacing between entries remains
+\end{document}
+
